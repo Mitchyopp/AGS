@@ -3,12 +3,12 @@ import app from "ags/gtk4/app"
 import { Astal } from "ags/gtk4"
 import { createPoll } from "ags/time"
 import Gtk from "gi://Gtk"
-import css from "./warning.css"
+import css from "./warning.scss"
 
 function Warning() {
   // const pwd = createPoll("", 1000, `bash -c "cat cat.tsx"`)
   return (
-    <box>
+    <box >
       <label label="⚠ Please change to a different application!" />
     </box>
   )
@@ -16,7 +16,10 @@ function Warning() {
 
 function MyBar() {
   return (
-    <window visible>
+    <window
+      visible
+      name="warning"
+    >
       <box>
         <Warning />
       </box>
@@ -25,8 +28,8 @@ function MyBar() {
 }
 
 app.start({
+  css: css,
   main() {
-    css: css,
     MyBar()
   },
 })
